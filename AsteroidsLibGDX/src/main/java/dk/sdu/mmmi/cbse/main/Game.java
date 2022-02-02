@@ -17,7 +17,7 @@ public class Game implements ApplicationListener {
 	
 	private GameStateManager gsm;
 	
-        @Override
+        @Override //one time method, runs once
 	public void create() {
 		
 		WIDTH = Gdx.graphics.getWidth();
@@ -25,7 +25,7 @@ public class Game implements ApplicationListener {
 		
 		cam = new OrthographicCamera(WIDTH, HEIGHT);
 		cam.translate(WIDTH / 2, HEIGHT / 2);
-		cam.update();
+		cam.update(); // works like a commit
 		
 		Gdx.input.setInputProcessor(
 			new GameInputProcessor()
@@ -35,7 +35,7 @@ public class Game implements ApplicationListener {
 		
 	}
 	
-        @Override
+        @Override // game loop method, gets called constantly
 	public void render() {
 		
 		// clear screen to black
@@ -49,13 +49,13 @@ public class Game implements ApplicationListener {
 		
 	}
 	
-        @Override
+        @Override // gets called when the window size changes
 	public void resize(int width, int height) {}
-        @Override
+        @Override // pause and resume mainly for android games
 	public void pause() {}
         @Override
 	public void resume() {}
-        @Override
+        @Override // one time method, gets called when application exits
 	public void dispose() {}
 	
 }
