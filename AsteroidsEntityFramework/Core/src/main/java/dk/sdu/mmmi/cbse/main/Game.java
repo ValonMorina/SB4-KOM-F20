@@ -16,8 +16,10 @@ import dk.sdu.mmmi.cbse.playersystem.PlayerPlugin;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Game
-        implements ApplicationListener {
+public class Game implements ApplicationListener {
+
+    public static int WIDTH;
+    public static int HEIGHT;
 
     private static OrthographicCamera cam;
     private ShapeRenderer sr;
