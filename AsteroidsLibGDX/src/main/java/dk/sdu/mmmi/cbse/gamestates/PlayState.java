@@ -52,7 +52,7 @@ public class PlayState extends GameState {
 			if (bullets.get(i).shouldRemove()) {
 				bullets.remove(i);
 				i--;
-			}
+			} 
 		}
 
 	}

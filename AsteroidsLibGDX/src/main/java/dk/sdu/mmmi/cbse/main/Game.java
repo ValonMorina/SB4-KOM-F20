@@ -34,7 +34,8 @@ public class Game implements ApplicationListener {
 		gsm = new GameStateManager();
 		
 	}
-	
+
+
         @Override // game loop method, gets called constantly
 	public void render() {
 		
