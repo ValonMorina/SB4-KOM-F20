@@ -5,6 +5,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import dk.sdu.mmmi.cbse.AsteroidControlSystem;
+import dk.sdu.mmmi.cbse.AsteroidPlugin;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -50,25 +52,25 @@ public class Game implements ApplicationListener {
         // Init plugin services
         IGamePluginService playerPlugin = new PlayerPlugin();
         IGamePluginService enemyPlugin = new EnemyPlugin();
-        //IGamePluginService asteroidPlugin = new AsteroidPlugin();
+        IGamePluginService asteroidPlugin = new AsteroidPlugin();
 
 
         // Init processing services
         IEntityProcessingService playerProcess = new PlayerControlSystem();
         IEntityProcessingService enemyProcess = new EnemyControlSystem();
-        //IEntityProcessingService asteroidProcess = new AsteroidControlSystem();
+        IEntityProcessingService asteroidProcess = new AsteroidControlSystem();
 
 
         // add plugins
         entityPlugins.add(playerPlugin);
         entityPlugins.add(enemyPlugin);
-        //entityPlugins.add(asteroidPlugin);
+        entityPlugins.add(asteroidPlugin);
 
 
         // add processors
         entityProcessors.add(playerProcess);
         entityProcessors.add(enemyProcess);
-        //entityProcessors.add(asteroidProcess);
+        entityProcessors.add(asteroidProcess);
 
 
         // Lookup all Game Plugins using ServiceLoader
