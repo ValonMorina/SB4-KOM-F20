@@ -50,22 +50,25 @@ public class Game implements ApplicationListener {
         // Init plugin services
         IGamePluginService playerPlugin = new PlayerPlugin();
         IGamePluginService enemyPlugin = new EnemyPlugin();
-        IGamePluginService asteroidPlugin = new AsteroidPlugin();
+        //IGamePluginService asteroidPlugin = new AsteroidPlugin();
 
 
         // Init processing services
         IEntityProcessingService playerProcess = new PlayerControlSystem();
         IEntityProcessingService enemyProcess = new EnemyControlSystem();
+        //IEntityProcessingService asteroidProcess = new AsteroidControlSystem();
 
 
-        // add plugins to game
+        // add plugins
         entityPlugins.add(playerPlugin);
         entityPlugins.add(enemyPlugin);
+        //entityPlugins.add(asteroidPlugin);
 
 
-        // add processors to game
+        // add processors
         entityProcessors.add(playerProcess);
         entityProcessors.add(enemyProcess);
+        //entityProcessors.add(asteroidProcess);
 
 
         // Lookup all Game Plugins using ServiceLoader
