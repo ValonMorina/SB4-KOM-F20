@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import dk.sdu.mmmi.cbse.AsteroidControlSystem;
 import dk.sdu.mmmi.cbse.AsteroidPlugin;
+import dk.sdu.mmmi.cbse.CollisionDetector;
+import dk.sdu.mmmi.cbse.CollisionProcessor;
 import dk.sdu.mmmi.cbse.common.data.Entity;
 import dk.sdu.mmmi.cbse.common.data.GameData;
 import dk.sdu.mmmi.cbse.common.data.World;
@@ -21,9 +23,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game implements ApplicationListener {
-
-    public static int WIDTH;
-    public static int HEIGHT;
 
     private static OrthographicCamera cam;
     private ShapeRenderer sr;
@@ -53,24 +52,28 @@ public class Game implements ApplicationListener {
         IGamePluginService playerPlugin = new PlayerPlugin();
         IGamePluginService enemyPlugin = new EnemyPlugin();
         IGamePluginService asteroidPlugin = new AsteroidPlugin();
+        IGamePluginService collisionPlugin = new CollisionDetector();
 
 
         // Init processing services
         IEntityProcessingService playerProcess = new PlayerControlSystem();
         IEntityProcessingService enemyProcess = new EnemyControlSystem();
         IEntityProcessingService asteroidProcess = new AsteroidControlSystem();
+        IEntityProcessingService collisionProcess = new CollisionProcessor();
 
 
         // add plugins
         entityPlugins.add(playerPlugin);
         entityPlugins.add(enemyPlugin);
         entityPlugins.add(asteroidPlugin);
+        entityProcessors.add(collisionProcess);
 
 
         // add processors
         entityProcessors.add(playerProcess);
         entityProcessors.add(enemyProcess);
         entityProcessors.add(asteroidProcess);
+        entityProcessors.add(collisionProcess);
 
 
         // Lookup all Game Plugins using ServiceLoader
@@ -100,6 +103,11 @@ public class Game implements ApplicationListener {
         for (IEntityProcessingService entityProcessorService : entityProcessors) {
             entityProcessorService.process(gameData, world);
         }
+
+        detectCollisions();
+    }
+
+    private void detectCollisions() {
 
 
     }
