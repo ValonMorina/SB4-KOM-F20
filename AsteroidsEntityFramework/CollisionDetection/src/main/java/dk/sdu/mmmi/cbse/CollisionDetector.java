@@ -7,11 +7,11 @@ import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 public class CollisionDetector implements IGamePluginService {
     @Override
     public void start(GameData gameData, World world) {
-        //throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
     public void stop(GameData gameData, World world) {
-        //throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

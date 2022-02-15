@@ -66,7 +66,7 @@ public class Game implements ApplicationListener {
         entityPlugins.add(playerPlugin);
         entityPlugins.add(enemyPlugin);
         entityPlugins.add(asteroidPlugin);
-        entityProcessors.add(collisionProcess);
+        entityPlugins.add(collisionPlugin);
 
 
         // add processors
