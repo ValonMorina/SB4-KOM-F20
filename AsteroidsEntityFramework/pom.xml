@@ -10,8 +10,8 @@
         <module>Common</module>
         <module>Player</module>
         <module>Enemy</module>
-        <module>Asteroids</module>
         <module>CollisionDetection</module>
+        <module>Asteroid</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
