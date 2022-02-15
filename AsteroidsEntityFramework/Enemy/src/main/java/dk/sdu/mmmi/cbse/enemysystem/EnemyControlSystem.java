@@ -10,11 +10,16 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 
+import java.util.Random;
+
 /**
  *
  * @author jcs
  */
 public class EnemyControlSystem implements IEntityProcessingService {
+
+    private Random random = new Random();
+    private boolean rightD;
 
     @Override
     public void process(GameData gameData, World world) {
@@ -23,9 +28,13 @@ public class EnemyControlSystem implements IEntityProcessingService {
             PositionPart positionPart = enemy.getPart(PositionPart.class);
             MovingPart movingPart = enemy.getPart(MovingPart.class);
 
-            movingPart.setLeft(gameData.getKeys().isDown(LEFT));
-            movingPart.setRight(gameData.getKeys().isDown(RIGHT));
-            movingPart.setUp(gameData.getKeys().isDown(UP));
+            if (random.nextDouble() > 0.8) {
+                rightD = (rightD == false) ? true: false;
+            }
+
+            movingPart.setLeft(!rightD);
+            movingPart.setRight(rightD);
+            movingPart.setUp(true);
 
 
             movingPart.process(gameData, enemy);
