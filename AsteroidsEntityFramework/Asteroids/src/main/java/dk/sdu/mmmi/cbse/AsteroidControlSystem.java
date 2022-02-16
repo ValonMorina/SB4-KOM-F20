@@ -8,7 +8,6 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IEntityProcessingService;
 
 public class AsteroidControlSystem implements IEntityProcessingService {
-
     @Override
     public void process(GameData gameData, World world) {
 
@@ -24,7 +23,7 @@ public class AsteroidControlSystem implements IEntityProcessingService {
 
             updateShape(asteroid);
         }
-    }
+}
 
     private void updateShape(Entity entity) {
         float[] shapex = entity.getShapeX();
@@ -49,6 +48,4 @@ public class AsteroidControlSystem implements IEntityProcessingService {
         entity.setShapeX(shapex);
         entity.setShapeY(shapey);
     }
-}
-
-
+    }

@@ -13,6 +13,7 @@ public class AsteroidPlugin implements IGamePluginService {
     private Entity asteroid;
     private Random random = new Random();
 
+
     @Override
     public void start(GameData gameData, World world) {
         asteroid = createAsteroid(gameData);
