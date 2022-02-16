@@ -7,7 +7,10 @@ import dk.sdu.mmmi.cbse.common.data.entityparts.MovingPart;
 import dk.sdu.mmmi.cbse.common.data.entityparts.PositionPart;
 import dk.sdu.mmmi.cbse.common.services.IGamePluginService;
 
+import java.awt.*;
 import java.util.Random;
+
+import static java.awt.Color.RED;
 
 public class EnemyPlugin implements IGamePluginService {
 
@@ -30,6 +33,7 @@ public class EnemyPlugin implements IGamePluginService {
     }
 
     private Entity createEnemyShip(GameData gameData) {
+
         // Create random start position
         int randomX = random.nextInt(gameData.getDisplayWidth());
         int randomY = random.nextInt(gameData.getDisplayHeight());
@@ -46,10 +50,10 @@ public class EnemyPlugin implements IGamePluginService {
         float y = randomY;
         float radians = randomRadians;
 
+        // create the enemy ship
         Entity enemyShip = new Enemy();
         enemyShip.add(new MovingPart(deacceleration,acceleration,maxSpeed,rotationSpeed));
         enemyShip.add(new PositionPart(x,y,radians));
-
         return enemyShip;
     }
 }

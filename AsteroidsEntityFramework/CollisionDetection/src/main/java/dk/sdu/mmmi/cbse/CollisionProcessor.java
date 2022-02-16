@@ -26,6 +26,7 @@ public class CollisionProcessor implements IEntityProcessingService {
                 if (checkCollision(x1,y1,radius,x2,y2,radius1)) {
                     System.out.println("Collision" + entity.toString() + " : " + entity1.toString());
 
+
                 } else {
                     System.out.println("NO COLLISION!");
                 }
